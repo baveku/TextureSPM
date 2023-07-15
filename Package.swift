@@ -15,17 +15,18 @@ let headersSearchPath: [CSetting] = [.headerSearchPath("."),
                                      .headerSearchPath("TextExperiment/String"),
                                      .headerSearchPath("TextExperiment/Utility"),
                                      .headerSearchPath("TextKit"),
-                                     .headerSearchPath("tvOS"),]
+                                     .headerSearchPath("tvOS")]
 
 let sharedDefines: [CSetting] = [
-                                // Disable "old" textnode by default for SPM
-                                // .define("AS_ENABLE_TEXTNODE", to: "0"),
-    
-                                // PINRemoteImage always available for Texture
-                                // .define("AS_PIN_REMOTE_IMAGE", to: "1"),
-                                
                                 // always disabled
-                                .define("IG_LIST_COLLECTION_VIEW", to: "0"),]
+                                .define("IG_LIST_COLLECTION_VIEW", to: "0"),
+                                .define("AS_USE_VIDEO", to: "1"),
+                                .define("AS_USE_MAPKIT", to: "1"),
+                                .define("AS_USE_PHOTOS", to: "1"),
+                                .define("AS_USE_VIDEO", to: "1"),
+                                .define("SWIFT_PACKAGE", to: "1"),
+                                .define("AS_PIN_REMOTE_IMAGE", to: "1")
+                                ]
 
 func IGListKit(enabled: Bool) -> [CSetting] {
     let state: String = enabled ? "1" : "0"
@@ -39,10 +40,8 @@ func IGListKit(enabled: Bool) -> [CSetting] {
 let package = Package(
     name: "Texture",
     platforms: [
-             .macOS(.v10_15),
-             .iOS(.v10),
-             .tvOS(.v10)
-         ],
+        .iOS(.v11)
+    ],
     products: [
         // Products define the executables and libraries a package produces, and make them visible to other packages.
         .library(
@@ -51,14 +50,17 @@ let package = Package(
             targets: ["AsyncDisplayKit"]),
     ],
     dependencies: [
+        .package(url: "https://github.com/pinterest/PINRemoteImage.git", .upToNextMajor(from: "3.0.3")),
+        .package(url: "https://github.com/pinterest/PINCache.git", .upToNextMajor(from: "3.0.2")),
+        .package(url: "https://github.com/pinterest/PINOperation.git", .upToNextMajor(from: "1.0.0")),
+        .package(url: "https://github.com/baveku/IGListKitSPM", .branch("spm")),
     ],
     targets: [
         .target(
             name: "AsyncDisplayKit",
-            dependencies: [
-            ],
+            dependencies: ["IGListKit", "PINRemoteImage", "PINCache", "PINOperation"],
             path: "spm/Sources/AsyncDisplayKit",
-            cSettings: headersSearchPath + sharedDefines + IGListKit(enabled: false)
+            cSettings: headersSearchPath + sharedDefines + IGListKit(enabled: true)
         ),
     ],
     cLanguageStandard: .c11,

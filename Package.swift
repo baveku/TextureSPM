@@ -29,13 +29,12 @@ let sharedDefines: [CSetting] = [
                                 ]
 
 func IGListKit(enabled: Bool) -> [CSetting] {
-    let state: String = enabled ? "1" : "0"
-    return [
-        .define("AS_IG_LIST_KIT", to: state),
-        .define("AS_IG_LIST_DIFF_KIT", to: state),
-    ]
+  let state: String = enabled ? "1" : "0"
+  return [
+    .define("AS_IG_LIST_KIT", to: state),
+    .define("AS_IG_LIST_DIFF_KIT", to: state),
+  ]
 }
-
 
 let package = Package(
     name: "Texture",

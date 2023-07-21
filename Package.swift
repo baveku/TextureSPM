@@ -58,7 +58,7 @@ let package = Package(
         .target(
             name: "AsyncDisplayKit",
             dependencies: [.product(name: "IGListKit", package: "IGListKitSPM"), "PINRemoteImage", "PINCache", "PINOperation"],
-            path: "spm/Sources/AsyncDisplayKit",
+            path: "Source",
             cSettings: headersSearchPath + sharedDefines + IGListKit(enabled: true)
         ),
     ],

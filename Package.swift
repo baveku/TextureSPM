@@ -56,11 +56,12 @@ let package = Package(
         .package(url: "https://github.com/pinterest/PINCache.git", .upToNextMajor(from: "3.0.2")),
         .package(url: "https://github.com/pinterest/PINOperation.git", .upToNextMajor(from: "1.0.0")),
         .package(url: "https://github.com/baveku/IGListKitSPM", .branch("spm")),
+        .package(url: "https://github.com/facebook/yoga", .branchItem("main"))
     ],
     targets: [
         .target(
             name: "AsyncDisplayKit",
-            dependencies: [.product(name: "IGListKit", package: "IGListKitSPM"), "PINRemoteImage", "PINCache", "PINOperation"],
+            dependencies: [.product(name: "IGListKit", package: "IGListKitSPM"), "PINRemoteImage", "PINCache", "PINOperation", "yoga"],
             path: "Source",
             cSettings: headersSearchPath + sharedDefines + IGListKit(enabled: true)
         ),

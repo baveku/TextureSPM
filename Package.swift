@@ -20,7 +20,7 @@ let headersSearchPath: [CSetting] = [.headerSearchPath("."),
 let sharedDefines: [CSetting] = [
                                 // Disable "old" textnode by default for SPM
                                 // .define("AS_ENABLE_TEXTNODE", to: "0"),
-                                 .define("YOGA_LAYOUT", to: "1"),
+                                 .define("YOGA", to: "1"),
                                 // always disabled
                                 .define("IG_LIST_COLLECTION_VIEW", to: "0"),
                                 .define("AS_USE_VIDEO", to: "1"),

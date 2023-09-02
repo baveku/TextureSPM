@@ -9,7 +9,7 @@
 /**
  * Enable Yoga layout engine in Texture cells 
  */
-#define YOGA_LAYOUT 0
+#define YOGA_LAYOUT 1
 
 /**
  * There are many ways to format ASLayoutSpec code.  In this example, we offer two different formats:

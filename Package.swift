@@ -50,7 +50,7 @@ let package = Package(
     ],
     dependencies: [
         .package(url: "https://github.com/pinterest/PINRemoteImage.git", .upToNextMajor(from: "3.0.4")),
-        .package(url: "https://github.com/pinterest/PINCache.git", .upToNextMajor(from: "3.0.3")),
+        .package(url: "https://github.com/pinterest/PINCache.git", .upToNextMajor(from: "3.0.4")),
         .package(url: "https://github.com/pinterest/PINOperation.git", .upToNextMajor(from: "1.0.0")),
         .package(url: "https://github.com/Instagram/IGListKit.git", .upToNextMajor(from: "5.0.0")),
     ],

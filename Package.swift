@@ -1,4 +1,4 @@
-// swift-tools-version:5.3
+// swift-tools-version:5.9
 // The swift-tools-version declares the minimum version of Swift required to build this package.
 
 import PackageDescription
@@ -39,7 +39,7 @@ func IGListKit(enabled: Bool) -> [CSetting] {
 let package = Package(
     name: "Texture",
     platforms: [
-        .iOS(.v11)
+        .iOS(.v14)
     ],
     products: [
         // Products define the executables and libraries a package produces, and make them visible to other packages.
@@ -49,15 +49,15 @@ let package = Package(
             targets: ["AsyncDisplayKit"]),
     ],
     dependencies: [
-        .package(url: "https://github.com/pinterest/PINRemoteImage.git", .upToNextMajor(from: "3.0.3")),
-        .package(url: "https://github.com/pinterest/PINCache.git", .upToNextMajor(from: "3.0.2")),
+        .package(url: "https://github.com/pinterest/PINRemoteImage.git", .upToNextMajor(from: "3.0.4")),
+        .package(url: "https://github.com/pinterest/PINCache.git", .upToNextMajor(from: "3.0.3")),
         .package(url: "https://github.com/pinterest/PINOperation.git", .upToNextMajor(from: "1.0.0")),
-        .package(url: "https://github.com/baveku/IGListKitSPM", .branch("spm")),
+        .package(url: "https://github.com/Instagram/IGListKit.git", .upToNextMajor(from: "5.0.0")),
     ],
     targets: [
         .target(
             name: "AsyncDisplayKit",
-            dependencies: [.product(name: "IGListKit", package: "IGListKitSPM"), "PINRemoteImage", "PINCache", "PINOperation"],
+            dependencies: [.product(name: "IGListKit", package: "IGListKit"), "PINRemoteImage", "PINCache", "PINOperation"],
             path: "Source",
             cSettings: headersSearchPath + sharedDefines + IGListKit(enabled: true)
         ),

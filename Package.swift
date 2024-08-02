@@ -49,10 +49,10 @@ let package = Package(
             targets: ["AsyncDisplayKit"]),
     ],
     dependencies: [
-        .package(url: "https://github.com/pinterest/PINRemoteImage.git", .upToNextMajor(from: "3.0.3")),
-        .package(url: "https://github.com/pinterest/PINCache.git", .upToNextMajor(from: "3.0.2")),
-        .package(url: "https://github.com/pinterest/PINOperation.git", .upToNextMajor(from: "1.0.0")),
-        .package(url: "https://github.com/baveku/IGListKitSPM", .branch("spm")),
+        .package(url: "https://github.com/pinterest/PINRemoteImage.git", .upToNextMajor(from: "3.0.4")),
+        .package(url: "https://github.com/pinterest/PINCache.git", .upToNextMajor(from: "3.0.4")),
+        .package(url: "https://github.com/pinterest/PINOperation.git", .upToNextMajor(from: "1.2.3")),
+        .package(url: "https://github.com/baveku/IGListKitSPM.git", .branch("spm")),
     ],
     targets: [
         .target(
